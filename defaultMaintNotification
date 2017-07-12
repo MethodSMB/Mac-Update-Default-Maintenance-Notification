@@ -1,0 +1,10 @@
+#!/bin/bash
+function notification() {
+  osascript <<EOT
+    tell app "System Events"
+      display dialog "We need to restart your computer for maintenance this $1. Please save your work and leave your computer on when you're done for the day. Thank you." buttons {"OK"} default button 1 with icon note with title "Scheduled Maintenance"
+    end tell
+EOT
+}
+
+notification "$MAINTWINDOW"
